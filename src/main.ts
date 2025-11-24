@@ -73,9 +73,11 @@ async function bootstrap() {
   SwaggerModule.setup('api/v1/docs', app, document);
 
   const port = configService.get<string>('PORT') || 3000;
+  const PUBLIC_DOMAIN = 'https://backend-foodfast-production.up.railway.app';
 
-  logger.log(`Server started on ${port}`);
-  logger.log(`Swagger running on http://localhost:${port}/api/v1/docs`);
+  logger.log(`Server started and available at ${PUBLIC_DOMAIN}/api/v1`); 
+
+  logger.log(`Swagger running on ${PUBLIC_DOMAIN}/api/v1/docs`);
 
   await app.listen(port);
 }
